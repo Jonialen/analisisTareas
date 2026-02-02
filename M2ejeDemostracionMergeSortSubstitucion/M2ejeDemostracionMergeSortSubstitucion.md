@@ -96,3 +96,86 @@ $$T(n) \le c \, n \log_2\left(\frac{n}{2}\right) + 2n$$
 
 ---
 
+## Paso 5: Simplificación del Logaritmo
+
+Usamos la propiedad logarítmica:
+
+$$
+\log_2\left(\frac{n}{2}\right) = \log_2 n - \log_2 2 = \log_2 n - 1
+$$
+
+Sustituimos:
+
+$$
+T(n) \le c n (\log_2 n - 1) + 2n
+$$
+
+Expandimos:
+
+$$
+T(n) \le c n \log_2 n - c n + 2n
+$$
+
+Factorizamos:
+
+$$
+T(n) \le c n \log_2 n + n(2 - c)
+$$
+
+---
+
+## Paso 6: Elección de la Constante \( c \)
+
+Para que se cumpla:
+
+$$
+T(n) \le c n \log_2 n + n
+$$
+
+necesitamos:
+
+$$
+c n \log_2 n + n(2 - c) \le c n \log_2 n + n
+$$
+
+Esto requiere:
+
+$$
+n(2 - c) \le n
+$$
+
+Dividiendo entre \( n > 0 \):
+
+$$
+2 - c \le 1
+$$
+
+Por lo tanto:
+
+$$
+c \ge 2
+$$
+
+Conclusión: Si elegimos \( c \ge 2 \), entonces la desigualdad se cumple.
+
+---
+
+## Paso 7: Conclusión Final
+
+Hemos demostrado por inducción matemática que para \( c \ge 2 \) y todo \( n \ge 1 \):
+
+$$
+T(n) \le c n \log_2 n + n
+$$
+
+Dado que el término \( n \) es de orden inferior a \( n \log_2 n \), podemos escribir:
+
+$$
+T(n) = O(n \log_2 n)
+$$
+
+Por lo tanto, el algoritmo **Merge Sort** tiene complejidad temporal:
+
+$$
+O(n \log_2 n)
+$$
