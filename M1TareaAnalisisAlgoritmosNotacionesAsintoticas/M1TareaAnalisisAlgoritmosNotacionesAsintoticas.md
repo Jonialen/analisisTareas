@@ -2,6 +2,8 @@
 
 **Análisis y Diseño de Algoritmos - CC3041**  
 José Antonio Mérida Castejón  
+Jonathan Alejandro Díaz Tahuite  
+Luis Francisco Padilla Juarez  
 8 de febrero de 2026
 
 ---
