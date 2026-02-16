@@ -1,8 +1,10 @@
 # Ejercicio: Demostración Master Method
-José Antonio Mérida Castejón  
-Jonathan Alejandro Díaz Tahuite  
-Luis Francisco Padilla Juarez  
+- José Antonio Mérida Castejón
+- Jonathan Alejandro Díaz Tahuite
+- Luis Francisco Padilla Juarez
+
 15 de febrero de 2026
+
 ## Parte 1: Demostración de la cota inferior
 
 Queremos demostrar que:
