@@ -208,11 +208,11 @@
    - $\cos(2k\pi) = 1 \Rightarrow f(n) = n$
    - $\cos(k\pi) = -1 \Rightarrow f(n/2) = \tfrac{n}{2}(3) = \tfrac{3n}{2}$
 
-   Esto da $f(n/2) = \tfrac{3n}{2} > f(n) = n$, por lo que ninguna constante $c < 1$ puede acotar la razón para todo $n$ suficientemente grande. La condición de regularidad **no se cumple**.
+   Esto da $f(n/2) = \tfrac{3n}{2} > f(n) = n$, por lo que ninguna constante $c < 1$ puede acotar la razón para todo $n$ suficientemente grande. La condición de regularidad no se cumple.
 
    ---
 
-6. Sea $G = (V, E)$ un grafo dirigido. Deseamos determinar si existe un camino que conecte a dos nodos $u, v \in V$; esto se conoce como el **problema de conectividad-st** o **STCON**. El algoritmo de Savitch, presentado a continuación, determina si existe un camino con tamaño máximo $2^i$ entre dos nodos $u, v$ del grafo $G$:
+6. Sea $G = (V, E)$ un grafo dirigido. Deseamos determinar si existe un camino que conecte a dos nodos $u, v \in V$; esto se conoce como el problema de conectividad-st o STCON. El algoritmo de Savitch, presentado a continuación, determina si existe un camino con tamaño máximo $2^i$ entre dos nodos $u, v$ del grafo $G$:
 
    **Solución:**
 
@@ -234,8 +234,8 @@
 
    Con $k = i$: $T(i) = O((2n)^i)$.
 
-   **Para $i = \log_2 n$:**
+   Para $i = \log_2 n$:
 
    $$T(\log_2 n) = O\!\left((2n)^{\log_2 n}\right) = O\!\left(n \cdot n^{\log_2 n}\right) = O\!\left(n^{1+\log_2 n}\right)$$
 
-   Como el exponente $1 + \log_2 n$ crece sin cota, este tiempo es superpolinomial: el algoritmo es **ineficiente** en tiempo. Su valor práctico es el uso de espacio $O(\log^2 n)$, que sí es eficiente.
+   Como el exponente $1 + \log_2 n$ crece sin cota, este tiempo es superpolinomial: el algoritmo es ineficiente en tiempo. Su valor práctico es el uso de espacio $O(\log^2 n)$, que sí es eficiente.
