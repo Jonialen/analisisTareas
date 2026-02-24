@@ -6,6 +6,47 @@
 
    La solución de acuerdo con el *Master Method* es $\Theta(n^2)$, pero usar la hipótesis $cn^2$ falla. Realice el procedimiento bajo esa hipótesis para comprobar que falla y luego modifique la hipótesis para que funcione.
 
+   **Solución:**
+
+   **1.1 Intento con hipótesis $T(n) \le cn^2$**
+
+   Asumimos que $T(k) \le ck^2$ para todo $k < n$. Sustituyendo en la recurrencia:
+
+   $$
+   \begin{aligned}
+   T(n) &= 4T(n/2) + n \\
+   T(n) &\le 4c(n/2)^2 + n \\
+   T(n) &\le 4c(n^2/4) + n \\
+   T(n) &\le cn^2 + n
+   \end{aligned}
+   $$
+
+   Para que la inducción sea válida, se requiere que $cn^2 + n \le cn^2$, lo cual implica $n \le 0$. Como estamos analizando el crecimiento para $n \ge 1$, la hipótesis **falla**.
+
+   **1.2 Hipótesis modificada: $T(n) \le cn^2 - dn$**
+
+   Para compensar el término lineal sobrante, asumimos $T(k) \le ck^2 - dk$:
+
+   $$
+   \begin{aligned}
+   T(n) &\le 4(c(n/2)^2 - d(n/2)) + n \\
+   T(n) &= 4(cn^2/4 - dn/2) + n \\
+   T(n) &= cn^2 - 2dn + n
+   \end{aligned}
+   $$
+
+   Queremos demostrar que $cn^2 - 2dn + n \le cn^2 - dn$. Simplificando la desigualdad:
+
+   $$
+   \begin{aligned}
+   -2dn + n &\le -dn \\
+   n &\le dn \\
+   d &\ge 1
+   \end{aligned}
+   $$
+
+   La desigualdad se cumple para cualquier $d \ge 1$. Por lo tanto, se confirma que $T(n) = \Theta(n^2)$.
+
 2. **Resuelva la recurrencia**
 
    $$
@@ -21,6 +62,48 @@
    y luego resuelva esta recurrencia con el método de substitución. Con este resultado pruebe la respuesta para la recurrencia original.
 
    *Hint:* note que, en $S(m)$, $m$ parece ocupar el lugar que $\log_2 n$ tiene en $T(n)$.
+
+   **Solución:**
+
+   **2.1 Cambio de variable**
+
+   Sea $n = 2^m$, lo que implica que $m = \log_2 n$ y $\sqrt{n} = 2^{m/2}$. Sustituimos en la recurrencia original:
+
+   $$T(2^m) = 3T(2^{m/2}) + m$$
+
+   Definimos una nueva función $S(m) = T(2^m)$, obteniendo la forma:
+
+   $$S(m) = 3S(m/2) + m$$
+
+   **2.2 Método de substitución para $S(m)$**
+
+   Proponemos como hipótesis (dada la forma de la relación de recurrencia) $S(k) \le ck^{\log_2 3} - dk$ para compensar el término lineal $m$:
+
+   $$
+   \begin{aligned}
+   S(m) &\le 3(c(m/2)^{\log_2 3} - d(m/2)) + m \\
+   S(m) &= 3\left(c \frac{m^{\log_2 3}}{3} - \frac{dm}{2}\right) + m \\
+   S(m) &= cm^{\log_2 3} - \frac{3}{2}dm + m
+   \end{aligned}
+   $$
+
+   Buscamos que $cm^{\log_2 3} - \frac{3}{2}dm + m \le cm^{\log_2 3} - dm$:
+
+   $$
+   \begin{aligned}
+   -\frac{3}{2}dm + m &\le -dm \\
+   m &\le \frac{1}{2}dm \\
+   d &\ge 2
+   \end{aligned}
+   $$
+
+   Esto demuestra que $S(m) = O(m^{\log_2 3})$.
+
+   **2.3 Regreso a la variable original**
+
+   Dado que $S(m) = T(n)$ y $m = \log_2 n$:
+
+   $$T(n) = \Theta((\log_2 n)^{\log_2 3}) \approx \Theta((\log_2 n)^{1.58})$$
 
 3. **Use un árbol de recursión** para proveer una cota ajustada a la recurrencia
 
